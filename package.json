@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cookies-parser": "^1.2.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
@@ -12,10 +14,10 @@
   "version": "1.0.0",
   "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/bMYWKvYv)\r # Interim Assessment: Full-Stack Integration – Coinbase Clone",
   "main": "server.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -23,8 +25,12 @@
   },
   "author": "Elikplim Yevu",
   "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Multimedia-and-Web-Design-L300-25-26/interim-assesment-eliyevu/issues"
   },
-  "homepage": "https://github.com/Multimedia-and-Web-Design-L300-25-26/interim-assesment-eliyevu#readme"
+  "homepage": "https://github.com/Multimedia-and-Web-Design-L300-25-26/interim-assesment-eliyevu#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
 }
