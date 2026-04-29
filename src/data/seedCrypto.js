@@ -1,0 +1,99 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+import mongoose from "mongoose";
+import Crypto from "../models/Crypto.js";
+import { connectDB } from "../config/db.js";
+
+const seedCryptos = [
+  {
+    name: "Bitcoin",
+    symbol: "BTC",
+    price: 67420.5,
+    image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png",
+    change24h: 2.34,
+  },
+  {
+    name: "Ethereum",
+    symbol: "ETH",
+    price: 3521.8,
+    image: "https://assets.coingecko.com/coins/images/279/large/ethereum.png",
+    change24h: 1.87,
+  },
+  {
+    name: "Solana",
+    symbol: "SOL",
+    price: 178.42,
+    image: "https://assets.coingecko.com/coins/images/4128/large/solana.png",
+    change24h: 4.12,
+  },
+  {
+    name: "Cardano",
+    symbol: "ADA",
+    price: 0.612,
+    image: "https://assets.coingecko.com/coins/images/975/large/cardano.png",
+    change24h: -1.23,
+  },
+  {
+    name: "Dogecoin",
+    symbol: "DOGE",
+    price: 0.1842,
+    image: "https://assets.coingecko.com/coins/images/5/large/dogecoin.png",
+    change24h: 5.67,
+  },
+  {
+    name: "XRP",
+    symbol: "XRP",
+    price: 0.623,
+    image: "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png",
+    change24h: 1.15,
+  },
+  {
+    name: "Polkadot",
+    symbol: "DOT",
+    price: 7.24,
+    image: "https://assets.coingecko.com/coins/images/12171/large/polkadot.png",
+    change24h: -0.54,
+  },
+  {
+    name: "Chainlink",
+    symbol: "LINK",
+    price: 18.92,
+    image: "https://assets.coingecko.com/coins/images/877/large/chainlink-new-logo.png",
+    change24h: 3.21,
+  },
+  {
+    name: "Polygon",
+    symbol: "MATIC",
+    price: 0.89,
+    image: "https://assets.coingecko.com/coins/images/4713/large/matic-token-icon.png",
+    change24h: -2.10,
+  },
+  {
+    name: "Litecoin",
+    symbol: "LTC",
+    price: 85.34,
+    image: "https://assets.coingecko.com/coins/images/2/large/litecoin.png",
+    change24h: 0.85,
+  }
+];
+
+const seedCrypto = async () => {
+  try {
+    await connectDB();
+
+    await Crypto.deleteMany();
+
+    await Crypto.insertMany(seedCryptos);
+
+    console.log("🚀 Crypto data seeded successfully!");
+
+    process.exit(0);
+  } catch (error) {
+    console.error("❌ Seeding error:", error);
+
+    process.exit(1);
+  }
+};
+
+seedCrypto();
