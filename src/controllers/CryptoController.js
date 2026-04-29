@@ -37,10 +37,9 @@ export const createCrypto = async (req, res) => {
 // Get all cryptos
 export const getAllCryptos = async (req, res) => {
     try {
-        const cryptos = await Crypto.find().sort;
+        const cryptos = await Crypto.find().sort({ createdAt: -1 });
         res.status(200).json({ cryptos });
     } catch (error) {
-        console.error("Error fetching cryptos:", error);
         res.status(500).json({ error: "An error occurred while fetching the cryptos." });
     }
 };
